@@ -8,7 +8,7 @@
     <div v-if="showAnnouncement" class="announcement">
       <h3>公告</h3>
       <p>{{ announcementText }}</p>
-      <button @click="closeAnnouncement" :style="{ '--primary-color': sysytemcolor }">关闭</button>
+      <button @click="closeAnnouncement" :style="{ '--primary-color': systemColor }">关闭</button>
     </div>
 
     <div class="container">
@@ -16,8 +16,7 @@
         <div v-for="project in bigProjects"
              :key="project.name"
              class="project-item"
-             :class="{ active: project.isActive }"
-             @click="toggleActive(project)">
+             :class="{ active: project.isActive }">
           <img :src="project.icon" :alt="project.name">
           <div class="project-content">
             <h3>{{ project.name }}</h3>
@@ -151,7 +150,7 @@ const systemColor=ref(generateRandomColor())
 
 
 const smallProjects = ref([
-  { name: "团队GitHub地址", url: "https://github.com/ZZSZ-YCT" ,color: sysytemcolor}
+  { name: "团队GitHub地址", url: "https://github.com/ZZSZ-YCT" ,color: systemColor}
 ])
 
 const closeAnnouncement = () => {
