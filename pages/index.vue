@@ -46,7 +46,7 @@
 </template>
 
 <script setup>
-/*const backgrounds = [
+const backgrounds = [
   "https://static.shittim.art/images/4anniversary-pv/10.webp",
   "https://static.shittim.art/images/4anniversary-pv/11.webp",
   "https://static.shittim.art/images/4anniversary-pv/12.webp",
@@ -109,7 +109,7 @@
   "https://static.shittim.art/images/4anniversary-pv/7.webp",
   "https://static.shittim.art/images/4anniversary-pv/8.webp",
   "https://static.shittim.art/images/4anniversary-pv/9.webp"]
-*/
+
 import { ref, onMounted } from 'vue'
 
 const showAnnouncement = ref(true)
@@ -146,7 +146,8 @@ const bigProjects = ref([
     color: generateRandomColor()
   }
 ])
-const sysytemcolor=ref(generateRandomColor())
+
+const systemColor=ref(generateRandomColor())
 
 
 const smallProjects = ref([
@@ -170,7 +171,7 @@ const closeAnnouncement = () => {
 
   project.isActive = true; // 激活当前项目
 };*/
-/*onMounted(() => {
+onMounted(() => {
   setInterval(async () => {
     const imageUrl = backgrounds[Math.floor(Math.random() * backgrounds.length)]
 
@@ -186,7 +187,7 @@ const closeAnnouncement = () => {
       console.error(data)
     }
   }, 5000)
-})*/
+})
 </script>
 
 <style scoped>
