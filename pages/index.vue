@@ -8,7 +8,7 @@
     <div v-if="showAnnouncement" class="announcement">
       <h3>公告</h3>
       <p>{{ announcementText }}</p>
-      <button @click="closeAnnouncement" :style="{ '--primary-color': sysytemcolor }">关闭</button>
+      <button @click="closeAnnouncement" :style="{ '--primary-color': systemColor }">关闭</button>
     </div>
 
     <div class="container">
