@@ -8,7 +8,7 @@
     <div v-if="showAnnouncement" class="announcement">
       <h3>公告</h3>
       <p>{{ announcementText }}</p>
-      <button @click="closeAnnouncement">关闭</button>
+      <button @click="closeAnnouncement" :style="{ '--primary-color': sysytemcolor }">关闭</button>
     </div>
 
     <div class="container">
@@ -21,7 +21,7 @@
           <img :src="project.icon" :alt="project.name">
           <div class="project-content">
             <h3>{{ project.name }}</h3>
-            <p>{{ project.description }}</p>
+            <p v-html="project.description"></p>
           </div>
           <a :href="project.url"
              class="project-link"
@@ -34,7 +34,7 @@
         <div v-for="project in smallProjects"
              :key="project.name"
              class="small-project-item">
-          <a :href="project.url">{{ project.name }}</a>
+          <a :href="project.url" :style="{ '--primary-color': project.color }">{{ project.name }}</a>
         </div>
       </div>
     </div>
@@ -46,7 +46,7 @@
 </template>
 
 <script setup>
-const backgrounds = [
+/*const backgrounds = [
   "https://static.shittim.art/images/4anniversary-pv/10.webp",
   "https://static.shittim.art/images/4anniversary-pv/11.webp",
   "https://static.shittim.art/images/4anniversary-pv/12.webp",
@@ -109,7 +109,7 @@ const backgrounds = [
   "https://static.shittim.art/images/4anniversary-pv/7.webp",
   "https://static.shittim.art/images/4anniversary-pv/8.webp",
   "https://static.shittim.art/images/4anniversary-pv/9.webp"]
-
+*/
 import { ref, onMounted } from 'vue'
 
 const showAnnouncement = ref(true)
@@ -146,20 +146,31 @@ const bigProjects = ref([
     color: generateRandomColor()
   }
 ])
+const sysytemcolor=ref(generateRandomColor())
+
 
 const smallProjects = ref([
-  { name: "团队GitHub地址", url: "https://github.com/ZZSZ-YCT" }
+  { name: "团队GitHub地址", url: "https://github.com/ZZSZ-YCT" ,color: sysytemcolor}
 ])
 
 const closeAnnouncement = () => {
   showAnnouncement.value = false
 }
 
-const toggleActive = (project) => {
-  project.isActive = !project.isActive
-}
+/*const toggleActive = (project) => {
+  for (let pjt of bigProjects) pjt.isActive = !pjt.isActive
 
-onMounted(() => {
+  //project.isActive = !project.isActive
+}*/
+
+/*const toggleActive = (project) => {
+  for (let pjt of bigProjects) {
+    pjt.isActive = false; // 关闭所有项目
+  }
+
+  project.isActive = true; // 激活当前项目
+};*/
+/*onMounted(() => {
   setInterval(async () => {
     const imageUrl = backgrounds[Math.floor(Math.random() * backgrounds.length)]
 
@@ -175,7 +186,7 @@ onMounted(() => {
       console.error(data)
     }
   }, 5000)
-})
+})*/
 </script>
 
 <style scoped>
