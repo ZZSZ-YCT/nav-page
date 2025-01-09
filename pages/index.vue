@@ -51,12 +51,18 @@ import { ref, onMounted } from 'vue'
 const showAnnouncement = ref(true)
 const announcementText = ref("欢迎访问英才2班导航站(这里是一个公告,以后可能会写点什么东西)")
 
-const generateRandomColor = () => {
+/*const generateRandomColor = () => {
   const hue = Math.floor(Math.random() * 360)
   const saturation = Math.floor(Math.random() * 30 + 70)
   const lightness = Math.floor(Math.random() * 30 + 70)
   return `hsl(${hue},${saturation}%,${lightness}%)`
-}
+}*/
+const generateRandomColor = () => {
+  const hue = Math.floor(Math.random() * 360);
+  const saturation = Math.floor(Math.random() * 50 + 50); // 提高饱和度，避免灰色
+  const lightness = Math.floor(Math.random() * 30 + 30); // 降低亮度，生成较深的颜色，但避免过于接近黑色
+  return `hsl(${hue},${saturation}%,${lightness}%)`;
+};
 
 const bigProjects = ref([
   {
