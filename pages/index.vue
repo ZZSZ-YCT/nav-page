@@ -30,7 +30,11 @@
         <div v-for="project in smallProjects"
              :key="project.name"
              class="small-project-item">
-          <a :href="project.url" :style="{ '--primary-color': project.color }">{{ project.name }}</a>
+          <a :href="project.url"
+             :style="{ '--primary-color': project.color }"
+             v-bind:download="project.download ? '' : null">
+            {{ project.name }}
+          </a>
         </div>
       </div>
     <!--</div>-->
@@ -78,7 +82,8 @@ const bigProjects = ref([
 const systemColor = ref(generateRandomColor())
 
 const smallProjects = ref([
-  {name: "团队GitHub地址", url: "https://github.com/ZZSZ-YCT", color: systemColor}
+  { name: "团队GitHub地址", url: "https://github.com/ZZSZ-YCT", color: systemColor },
+  { name: "ClassIsland集控配置文件", url: "Management.json", color: systemColor, download: true }
 ])
 
 const closeAnnouncement = () => {
