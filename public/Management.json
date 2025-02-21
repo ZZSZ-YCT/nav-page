@@ -1,0 +1,7 @@
+{
+    "ManagementServerKind": 0,
+    "ManagementServer": "",
+    "ManagementServerGrpc": "",
+    "ManifestUrlTemplate": "https://ci.zzszyct.xyz/manifest.json",
+    "ClassIdentity": "admin"
+}
